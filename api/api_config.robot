@@ -6,9 +6,9 @@ ${HEADERS}      {"Accept": "application/json", "Content-Type": "application/json
 Montar url
     [Arguments]     ${endpoint}
     ${url}=     Catenate        SEPARATOR=      ${BASE_URL}     ${endpoint}
-    [Return]        ${url}
+    RETURN       ${url}
 
 Montar headers com cookie
     [Arguments]    ${token}
     ${headers}=    Create Dictionary    Accept=application/json    Content-Type=application/json    Cookie=token=${token}
-    [Return]       ${headers}
+    RETURN      ${headers}

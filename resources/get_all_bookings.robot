@@ -8,4 +8,4 @@ Pegar todos os bookings
     [Arguments]    ${endpoint}
     Create Session      booking     ${BASE_URL}     headers=${HEADERS}
     ${response}=    GET On Session    booking    ${endpoint}
-    [Return]    ${response}
+    RETURN    ${response}
