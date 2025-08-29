@@ -8,4 +8,3 @@ Teste pegar todos os bookings
     Should Be Equal As Integers    ${response.status_code}    200
     ${bookings}=    To JSON    ${response.content}
     Dictionary Should Contain Key    ${bookings[0]}    bookingid
-    Set Global Variable    ${FIRST_BOOKING}    ${bookings[0]["bookingid"]}
