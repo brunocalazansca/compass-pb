@@ -12,7 +12,7 @@ Deletar booking
     ${url}=         Montar url     ${endpoint}
     ${headers}=     Montar headers com cookie    ${token}
     ${response}=    DELETE    ${url}    headers=${headers}
-    [Return]        ${response}
+    RETURN        ${response}
 
 *** Test Cases ***
 Deletar primeiro booking

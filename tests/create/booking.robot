@@ -20,7 +20,7 @@ Criar booking
 
         ${response}=    POST On Session    booking    ${endpoint}    json=${payload}
 
-        [Return]    ${response}
+        RETURN    ${response}
 
 *** Test Cases ***
 Test Criar Booking

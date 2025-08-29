@@ -1,1 +1,2 @@
-### Repositório Squad 1 - Testes Robot
+### Comando para rodas os testes
+- `robot -d ./results ./tests/`
