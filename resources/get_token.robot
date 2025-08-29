@@ -11,10 +11,10 @@ Criar token
     Create Session      booking     ${BASE_URL}     headers=${HEADERS}
 
     ${payload}=    Create Dictionary    username=${username}    password=${password}
-    ${response}=    Post Request    booking    ${endpoint}    json=${payload}
+    ${response}=    POST On Session    booking    ${endpoint}    json=${payload}
     ${json}=    To JSON    ${response.content}
 
     ${token}=    Get From Dictionary    ${json}    token
     Set Global Variable    ${TOKEN}    ${token}
 
-    [Return]        ${TOKEN}
+    RETURN        ${TOKEN}
