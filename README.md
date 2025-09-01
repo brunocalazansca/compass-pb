@@ -1,2 +1,1 @@
-### Comando para rodas os testes
-- `robot -d ./results ./tests/`
+### Repositório correspondente as atividades das semanas
