@@ -1,3 +1,5 @@
+#Testes de um mesmo endpoint ou método podem ser aglomerados juntos, ou mesmo todos os testes em um só arquivo. 
+#Para isso, podem ser usadas tags. Exemplo na linha 11
 *** Settings ***
 Resource        ../../api/api_config.robot
 Library     RequestsLibrary
@@ -6,7 +8,7 @@ Library     Collections
 *** Keywords ***
 Criar booking
     [Arguments]    ${endpoint}
-
+    [Tags]         POST            #Melhora visibilidade
     ${bookingdate}=    Create Dictionary    checkin=2018-01-01    checkout=2019-01-01
     ${payload}=    Create Dictionary
         ...    firstname=Bruno
