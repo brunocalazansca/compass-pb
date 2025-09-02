@@ -1,13 +1,14 @@
 *** Settings ***
 Resource        ../../api/api_config.robot
 Resource        ../data/json_loader.robot
+Resource        ../data/fake_data_generator.robot
 Library         RequestsLibrary
 Library         Collections
 
 *** Keywords ***
 Criar booking
     [Arguments]    ${endpoint}
-    ${payload}=    Get Booking Data    valid_booking
+    ${payload}=    Generate Fake Booking Data    complete
     Create Session      booking     ${BASE_URL}     headers=${HEADERS}
     ${response}=    POST On Session    booking    ${endpoint}    json=${payload}
     RETURN    ${response}
@@ -47,7 +48,8 @@ Atualizar booking parcialmente
     ${endpoint}=    Set Variable    /booking/${booking_id}
     ${url}=         Montar url     ${endpoint}
     ${headers}=     Montar headers com cookie    ${token}
-    ${response}=    PATCH    ${url}    headers=${headers}   data=${body}
+    ${headers}=     Set To Dictionary    ${headers}    Content-Type=application/json
+    ${response}=    PUT    ${url}    headers=${headers}    data=${body}
     RETURN        ${response}
 
 Deletar booking
