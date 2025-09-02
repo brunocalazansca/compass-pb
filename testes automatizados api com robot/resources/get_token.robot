@@ -6,7 +6,6 @@ Library     Collections
 *** Keywords ***
 Criar token
     [Arguments]     ${endpoint}     ${username}     ${password}
-    ${url}=     Montar url      ${endpoint}
     Create Session      booking     ${BASE_URL}     headers=${HEADERS}
     ${payload}=    Create Dictionary    username=${username}    password=${password}
     ${response}=    POST On Session    booking    ${endpoint}    json=${payload}
