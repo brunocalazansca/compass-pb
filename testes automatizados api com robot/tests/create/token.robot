@@ -1,11 +1,12 @@
 *** Settings ***
-Resource        ../../api/api_config.robot
-Resource        ../../resources/get_token.robot
+Resource        ../../keywords/auth/token_keywords.robot
+Resource        ../../keywords/validation/response_validation.robot
+Resource        ../../keywords/setup_teardown.robot
+Resource        ../../config/test_config.robot
+Test Setup      Test Setup
+Test Teardown   Test Teardown
 
 *** Test Cases ***
 Teste criar token
-    ${endpoint}=    Set Variable    /auth
-    ${username}=    Set Variable    admin
-    ${password}=    Set Variable    password123
-
-    Criar token     ${endpoint}     ${username}     ${password}
+    ${token}=    Criar token    /auth    ${USERNAME}    ${PASSWORD}
+    Should Not Be Empty    ${token}
