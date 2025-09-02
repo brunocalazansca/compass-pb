@@ -1,13 +1,13 @@
 *** Settings ***
 Resource        ../../api/api_config.robot
-Resource        ../../test_data/booking_payloads.robot
+Resource        ../data/json_loader.robot
 Library         RequestsLibrary
 Library         Collections
 
 *** Keywords ***
 Criar booking
     [Arguments]    ${endpoint}
-    ${payload}=    Create Dictionary    &{VALID_BOOKING_DATA}    bookingdates=&{BOOKING_DATES}
+    ${payload}=    Get Booking Data    valid_booking
     Create Session      booking     ${BASE_URL}     headers=${HEADERS}
     ${response}=    POST On Session    booking    ${endpoint}    json=${payload}
     RETURN    ${response}

@@ -3,8 +3,8 @@ Resource        ../../keywords/booking/booking_keywords.robot
 Resource        ../../keywords/auth/token_keywords.robot
 Resource        ../../keywords/validation/response_validation.robot
 Resource        ../../keywords/setup_teardown.robot
+Resource        ../../keywords/data/json_loader.robot
 Resource        ../../config/test_config.robot
-Resource        ../../test_data/booking_payloads.robot
 Library         Collections
 Test Setup      Test Setup
 Test Teardown   Test Teardown
@@ -17,7 +17,7 @@ Atualizar booking parcialmente
     ${first_booking}=   Get From List    ${all_bookings.json()}    0
     ${booking_id}=      Set Variable    ${first_booking['bookingid']}
 
-    ${body_dict}=    Create Dictionary    &{PARTIAL_UPDATE_DATA}
+    ${body_dict}=    Get Booking Data    partial_update
     ${body}=    Evaluate    json.dumps(${body_dict})    json
 
     ${response}=    Atualizar booking parcialmente    ${booking_id}    ${token}    ${body}
