@@ -1,7 +1,8 @@
 *** Settings ***
-Resource        ../api/api_config.robot
-Library     RequestsLibrary
-Library     Collections
+Resource        ../../api/api_config.robot
+Resource        ../../config/test_config.robot
+Library         RequestsLibrary
+Library         Collections
 
 *** Keywords ***
 Criar token

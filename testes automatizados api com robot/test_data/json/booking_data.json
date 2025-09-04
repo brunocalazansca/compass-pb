@@ -1,0 +1,35 @@
+{
+  "valid_booking": {
+    "firstname": "Bruno",
+    "lastname": "Calazans",
+    "totalprice": 18,
+    "depositpaid": true,
+    "bookingdates": {
+      "checkin": "2018-01-01",
+      "checkout": "2019-01-01"
+    },
+    "additionalneeds": "Breakfast"
+  },
+  "update_booking": {
+    "firstname": "Bruno",
+    "lastname": "Carritilha",
+    "totalprice": 18,
+    "depositpaid": true,
+    "bookingdates": {
+      "checkin": "2018-01-01",
+      "checkout": "2019-01-01"
+    },
+    "additionalneeds": "Breakfast"
+  },
+  "partial_update": {
+    "firstname": "Bruno",
+    "lastname": "Calazans Carritilha",
+    "totalprice": 18,
+    "depositpaid": true,
+    "bookingdates": {
+      "checkin": "2018-01-01",
+      "checkout": "2019-01-01"
+    },
+    "additionalneeds": "Breakfast"
+  }
+}
