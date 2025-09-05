@@ -1,0 +1,52 @@
+Alterações e melhorias aplicadas ao Plano de Testes da ServeRest
+
+1. Expansão da cobertura de testes
+
+Cenários de borda: inclusão de testes para campos ausentes, nulos ou inválidos, strings muito longas e números no limite.
+Concorrência: cenários de múltiplos usuários comprando o mesmo produto simultaneamente para validar consistência de estoque.
+Validação de payload e status codes: checagem detalhada das respostas da API, incluindo mensagens de erro e códigos HTTP.
+Cenários de dados extremos: testes quando o banco de dados está vazio ou com poucos registros.
+
+2. Detalhamento e adição de cenários de teste
+
+Usuários: testes de atualização, alteração de senha, exclusão com/sem carrinho ativo, login com token expirado.
+Produtos: testes de atualização, exclusão condicional (vinculado ou não a carrinhos), consultas com filtros.
+Carrinhos: criação com múltiplos produtos, atualização de quantidades, cancelamento e conclusão de compras, cenários de concorrência.
+Autenticação e segurança: testes de tokens inválidos ou expirados, acesso a endpoints restritos, logout e revogação de token.
+
+3. Priorização refinada
+
+Alta: cenários críticos como CRUD de usuários/produtos, criação/conclusão/cancelamento de carrinhos, regras de estoque, autenticação e concorrência.
+Média: manipulação de dados inválidos, duplicidade de cadastro, carrinhos com produtos fora de estoque.
+Baixa: cenários extremos, dados incomuns, performance de endpoints não críticos, filtros de pesquisa complexos.
+
+4. Matriz de risco atualizada
+
+Inclusão de riscos relacionados a concorrência e inconsistência de estoque.
+Adição de falhas de autenticação, revogação de token e exclusão de produtos vinculados a carrinhos.
+Classificação dos riscos baseada em impacto e probabilidade.
+
+5. Preparação para automação com Robot Framework
+
+Testes parametrizados: execução com múltiplos dados para usuários, produtos e carrinhos.
+Validação de schema JSON: integridade do payload em todas as respostas.
+Testes de sucesso e falha: incluindo status code, mensagens e limites de dados.
+Preparação e limpeza automatizada de dados: garante repetibilidade dos testes.
+Cenários de concorrência: simulação de operações simultâneas para validar consistência.
+Relatórios automatizados: geração de resultados claros e detalhados.
+
+6. Boas práticas de automação aplicadas
+
+Separação de cenários críticos e não críticos para execução em pipelines de CI/CD.
+Parametrização de dados para facilitar testes repetitivos e escaláveis.
+Verificação sistemática de códigos de status e mensagens em todas as respostas da API.
+Cobertura de todas as regras de negócio documentadas, incluindo limites, erros e exceções.
+Validação de consistência de dados em operações simultâneas e concorrentes.
+
+7. Benefícios das alterações
+
+Maior confiabilidade: testes mais completos e robustos, reduzindo falhas em produção.
+Preparação para automação: todos os cenários podem ser implementados com Robot Framework.
+Cobertura de riscos críticos: estoque, carrinhos únicos, autenticação e exclusão de recursos vinculados.
+Eficiência em testes repetitivos: parametrização e preparação automática de dados permitem execução consistente.
+Facilidade de integração em CI/CD: separação de cenários críticos e geração de relatórios automáticos.
