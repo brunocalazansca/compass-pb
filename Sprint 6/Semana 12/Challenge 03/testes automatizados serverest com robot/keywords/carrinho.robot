@@ -2,8 +2,8 @@
 Library    RequestsLibrary
 Library    DateTime
 Library    Collections
-Resource    api_keywords.robot
-Resource    produto_keywords.robot
+Resource    api.robot
+Resource    produto.robot
 
 *** Keywords ***
 Criar Carrinho

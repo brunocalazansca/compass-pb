@@ -2,7 +2,7 @@
 Library    RequestsLibrary
 Library    DateTime
 Library    Collections
-Resource    api_keywords.robot
+Resource    api.robot
 
 *** Keywords ***
 Criar Usuario Admin E Fazer Login

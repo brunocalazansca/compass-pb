@@ -1,7 +1,7 @@
 *** Settings ***
 Library    RequestsLibrary
 Library    DateTime
-Resource    api_keywords.robot
+Resource    api.robot
 
 *** Keywords ***
 Criar Usuario Para Login
