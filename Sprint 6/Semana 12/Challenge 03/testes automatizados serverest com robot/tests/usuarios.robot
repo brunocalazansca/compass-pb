@@ -1,6 +1,6 @@
 *** Settings ***
-Resource    ../keywords/api_keywords.robot
-Resource    ../keywords/usuario_keywords.robot
+Resource    ../keywords/api.robot
+Resource    ../keywords/usuario.robot
 Library    DateTime
 Suite Setup    Create Session    serverest    http://localhost:3000
 
