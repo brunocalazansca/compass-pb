@@ -21,4 +21,4 @@ Fazer Requisicao API
         ${response}=    DELETE On Session    serverest    ${endpoint}    headers=${headers}    expected_status=any
     END
     
-    [Return]    ${response}
+    RETURN    ${response}
