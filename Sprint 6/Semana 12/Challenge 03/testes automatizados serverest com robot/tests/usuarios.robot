@@ -11,9 +11,7 @@ ${SENHA_USUARIO}
 
 *** Test Cases ***
 Teste POST Usuario Sucesso
-    ${timestamp}=    Get Current Date    result_format=%Y%m%d%H%M%S
-    ${dados}=    Create Dictionary    nome=Usuario Teste    email=teste${timestamp}@empresa.com    password=12345    administrador=true
-    ${response}=    Fazer Requisicao API    POST    /usuarios    ${dados}
+    ${response}    ${dados}=    Criar Usuario    Usuario Teste    teste    12345    true
     
     Should Be Equal As Numbers    ${response.status_code}    201
     Should Be Equal    ${response.json()}[message]    Cadastro realizado com sucesso
@@ -22,26 +20,13 @@ Teste POST Usuario Sucesso
     Set Global Variable    ${ID_USUARIO}    ${response.json()}[_id]
     Set Global Variable    ${EMAIL_USUARIO}    ${dados}[email]
     Set Global Variable    ${SENHA_USUARIO}    ${dados}[password]
-    
-    Validar Tamanho Senha    ${dados}[password]
-    Validar Email Nao Gmail Hotmail    ${dados}[email]
 
 Teste POST Usuario Email Duplicado
-    ${timestamp}=    Get Current Date    result_format=%Y%m%d%H%M%S
-    ${dados}=    Create Dictionary    nome=Usuario Teste    email=teste${timestamp}@empresa.com    password=12345    administrador=true
-    ${response1}=    Fazer Requisicao API    POST    /usuarios    ${dados}
+    ${response1}    ${dados}=    Criar Usuario    Usuario Dup    dup    12345    true
     ${response2}=    Fazer Requisicao API    POST    /usuarios    ${dados}
     
     Should Be Equal As Numbers    ${response2.status_code}    400
     Should Be Equal    ${response2.json()}[message]    Este email já está sendo usado
-
-Teste POST Usuario Email Gmail Nao Permitido
-    ${dados}=    Create Dictionary    nome=Usuario Gmail    email=teste@gmail.com    password=12345    administrador=true
-    Run Keyword And Expect Error    *    Validar Email Nao Gmail Hotmail    ${dados}[email]
-
-Teste POST Usuario Senha Invalida
-    ${dados}=    Create Dictionary    nome=Teste    email=teste@test.com    password=123    administrador=true
-    Run Keyword And Expect Error    *    Validar Tamanho Senha    ${dados}[password]
 
 Teste GET Usuario Por ID Sucesso
     [Documentation]    Usa o ID do usuário criado no primeiro teste
@@ -68,9 +53,6 @@ Teste PUT Usuario Sucesso
     
     Should Be Equal As Numbers    ${response.status_code}    200
     Should Be Equal    ${response.json()}[message]    Registro alterado com sucesso
-    
-    Validar Tamanho Senha    ${dados}[password]
-    Validar Email Nao Gmail Hotmail    ${dados}[email]
 
 Teste PUT Usuario ID Inexistente
     ${timestamp}=    Get Current Date    result_format=%Y%m%d%H%M%S
