@@ -1,0 +1,53 @@
+Usuários:
+
+- Cadastrar usuário:
+    - Cadastro com sucesso
+    - E-mail já cadastrado
+
+- Listar usuários cadastrados
+
+- Buscar usuário por ID:
+    - Usuário encontrado
+    - Usuário não encontrado
+
+- Alterar usuário:
+    - Registro alterado com sucesso
+    - E-mail já cadastrado
+
+- Excluir usuário:
+    - Exclusão realizada com sucesso
+    - Usuário inexistente
+
+Login:
+
+- Realizar login
+    - Login realizado com sucesso
+    - E-mail e/ou senha inválidos
+    - Token expirado
+
+Produtos:
+
+- Cadastrar produto:
+    - Cadastro realizado com sucesso
+    - Nome duplicado ou inválido
+    - Sem token ou token inválido
+
+- Listar produtos cadastrados
+
+- Buscar produto por ID:
+    - Produto encontrado
+    - Produto não encontrado
+    - Usuário não autenticado
+
+Carrinhos:
+
+- Criar carrinho:
+    - Criado com sucesso
+    - Token ausente ou inválido
+
+- Buscar carrinho por ID:
+    - Carrinho encontrado
+    - Carrinho não encontrado
+
+- Concluir compra / Excluir carrinho:
+    - Exclusão realizada com sucesso
