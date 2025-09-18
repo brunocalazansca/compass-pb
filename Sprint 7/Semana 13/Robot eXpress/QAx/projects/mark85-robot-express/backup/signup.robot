@@ -75,3 +75,42 @@ Não deve cadastrar com senha muito curta
 
         Alert should be                     Informe uma senha com pelo menos 6 digitos
     END
+
+Não deve cadastrar com senha de 1 digito
+    [Tags]              short_pass
+    [Template]
+    Short password      1
+
+Não deve cadastrar com senha de 2 digito
+    [Tags]              short_pass
+    [Template]
+    Short password      12
+
+Não deve cadastrar com senha de 3 digito
+    [Tags]              short_pass
+    [Template]
+    Short password      123
+
+Não deve cadastrar com senha de 4 digito
+    [Tags]              short_pass
+    [Template]
+    Short password      1234
+
+Não deve cadastrar com senha de 5 digito
+    [Tags]              short_pass
+    [Template]
+    Short password      12345
+
+*** Keywords ***
+Short password
+    [Arguments]         ${short_pass}
+
+    ${user}             Create Dictionary
+    ...                 name=Bruno
+    ...                 email=bruno@gmail.com
+    ...                 password=${short_pass}
+
+    Go to signup page
+    Submit signup form                  ${user}
+
+    Alert should be                     Informe uma senha com pelo menos 6 digitos
