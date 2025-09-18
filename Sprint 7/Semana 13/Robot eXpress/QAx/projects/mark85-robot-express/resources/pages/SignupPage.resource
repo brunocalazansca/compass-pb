@@ -17,16 +17,3 @@ Submit signup form
     Fill Text       css=input[name=email]           ${user}[email]
     Fill Text       css=input[name=password]        ${user}[password]
     Click           css=button[type=submit] >> text=Cadastrar
-
-Notice should be
-    [Arguments]                 ${expected_text}
-    ${element}                  Set Variable            css=.notice p
-
-    Wait For Elements State     ${element}       visible     5
-    Get Text                    ${element}       equal       ${expected_text}
-
-Alert should be
-    [Arguments]        ${expected_text}
-
-    Wait For Elements State             css=.alert-error >> text=${expected_text}
-    ...                                 visible        5
