@@ -13,3 +13,6 @@ User should be logged in
     ...                            visible    5
 
     Get Text                       ${element}    equal    Olá, ${splited_name}[0]
+
+Go to task form
+    Click    css=.button-add
